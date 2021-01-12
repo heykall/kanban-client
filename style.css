@@ -1,0 +1,68 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(-45deg, #9166f5, #df87a9, #a5dbee, #dbe9e6);
+  background-blend-mode: normal, lighten, soft-light;
+  animation: color-change-5x 8s linear infinite alternate both;
+}
+
+@keyframes color-change-5x {
+  0% {
+    background: #b2aeb4;
+  }
+  25% {
+    background: #91b8ab;
+  }
+  50% {
+    background: #7ec3f1;
+  }
+  75% {
+    background: #836c83;
+  }
+  100% {
+    background: #b39494;
+  }
+}
+
+.row {
+  padding: 18px;
+}
+
+#content {
+  margin: 10px;
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,.4) 0%,    rgba(200,200,200,.5) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid #999;
+  border-radius: 5px 15px 0px 0px;
+}
+
+.card-body {
+  margin: 10px;
+  border-radius: 5px 15px 0px 0px;
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,.4) 0%,    rgba(200,200,200,.5) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid #999;
+  color: #123;
+  height: 100px;
+  width: auto;
+}
+
+.card-header {
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,.4) 0%,    rgba(200,200,200,.5) 100%);
+  backdrop-filter: blur(10pxpx);
+}
+
+#first {
+  border-radius: 5px 15px 0px 0px;
+}
+
+
+
+
+
+
+
