@@ -15,176 +15,60 @@
   <title>Kanban</title>
 </head>
 <body>
+  <div id="app">
 
-
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="/assets/nav/note.png" width="30" height="30" class="d-inline-block align-top" alt="">
-          KanBan (看板)
-        </a>
-        <div id="logout"></div>
-        <button type="button" class="btn btn-outline-danger waves-effect btn-sm ">Logout</button>
+    <div id="landing-page" v-if="pageName === 'landing-page'">
+      <div class="container d-flex justify-content-center">
+        <div style="position: absolute; top: 25%;">
+          <h1 class="mb-6" style="color: cornsilk;">KanBan (看板)</h1>
+          <h3 class="mb-5">
+          <em>The Right Way to Organize Your Task</em>
+        </h3>
         </div>
+        <button @click="start" style= "position: absolute; top: 50%;" class="btn btn-outline-white waves-effect" >Get Started</button>
+      </div>
     </div>
-  </nav>
-<!-- End Navbar -->
 
-<!-- Kanban -->
-  <div class="container col-sm-12">
-    <div class="row no-gutters">
-
-      <!-- first card -->
-
-      <div class="card col" id="content">
-        <h5 class="card-header text-black-50 font-weight-bold" id="header">Featured</h5>
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
+    <header id="nav" v-if="pageName === 'main-page'">
+      <!-- Navbar -->
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="/assets/nav/note.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              KanBan (看板)
+            </a>
+            <div id="logout"></div>
+            <button @click="logout" type="button" class="btn btn-outline-danger waves-effect btn-sm ">Logout</button>
+            </div>
         </div>
+      </nav>
+      <!-- End Navbar -->
+    </header>
+       
+    <section id="kanban" v-if="pageName === 'main-page'">
+      <!-- Kanban -->
+     <div class="container col-sm-12" >
+        <div class="row no-gutters">
 
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
+          <!-- fourth card -->
 
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="col big-card" id="content">
+            <h5 class="card-header text-black-50 font-weight-bold" id="header">Done</h5>
+            <div class="card overflow-auto">
+              <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col " id="first">
+                <div class="card-title text-black font-weight-bold">Special title treatment</div>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional content.
+                </p>
+              </div>
+      
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- second card  -->
-      <div class="card col" id="content">
-        <h5 class="card-header text-black-50 font-weight-bold" id="header">Todo</h5>
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <!-- third card -->
-
-      <div class="card col" id="content">
-        <h5 class="card-header text-black-50 font-weight-bold" id="header">Doing</h5>
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <!-- fourth card -->
-
-      <div class="card col" id="content">
-        <h5 class="card-header text-black-50 font-weight-bold" id="header">Done</h5>
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-        </div>
-
-        <div class="card-body text-black-50 font-weight-bold text-sm-left p-2 col" id="first">
-          <div class="card-title text-black font-weight-bold">Special title treatment</div>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-  
-      <!-- </div>
-        <div class="card-header text-black-50 font-weight-bold text-sm-left p-2 col">
-          Todo
-        </div>
-        <div class="card-header text-black-50 font-weight-bold text-sm-left p-2 col">
-          Doing
-        </div>
-        <div class="card-header text-black-50 font-weight-bold text-sm-left p-2 col">
-          Done
-        </div> -->
-
-
-    </div>
+    </section>
   </div>
+  
 <!-- End Kanban -->
 
 <!-- JQuery -->
@@ -195,5 +79,11 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<!-- Vue  -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- Script Local -->
+<script src="index.js"></script>
 </body>
 </html>

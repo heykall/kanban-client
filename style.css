@@ -40,6 +40,7 @@ body {
 
 .card-body {
   margin: 10px;
+  padding: 10px;
   border-radius: 5px 15px 0px 0px;
   background: rgb(255,255,255);
   background: linear-gradient(135deg, rgba(255,255,255,.4) 0%,    rgba(200,200,200,.5) 100%);
@@ -58,9 +59,31 @@ body {
 
 #first {
   border-radius: 5px 15px 0px 0px;
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,.4) 0%,    rgba(200,200,200,.5) 100%);
+  backdrop-filter: blur(10pxpx);
 }
 
+.big-card{
+  height: 500px;
+  max-width: 25vw;
+  min-height: auto;
+}
 
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+section{
+  position: fixed;
+  margin-top: 60px;
+}
+
+.card {
+  background: rgb(255,255,255);
+}
 
 
 
