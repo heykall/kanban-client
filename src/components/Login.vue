@@ -24,17 +24,18 @@
       <div class="container-fluid">
         <div class="form">
           <h2>Login Form</h2>
-          <form action="">
+          <form action="" @submit.prevent="login">
             <div class="inputBox">
-              <input type="text" placeholder="Username">
+              <input type="text" placeholder="Username" v-model="username">
             </div>
             <div class="inputBox">
-              <input type="password" placeholder="Password">
+              <input type="password" placeholder="Password" v-model="password">
             </div>
             <div class="inputBox">
               <input type="submit" value="Login">
+                <button v-google-signin-button="clientId" class="btn google-signin-button btn-sm" style="background-color: #DB4437" href="#!" role="button"><i class="fab fa-google"></i> Sign in </button>
             </div>
-            <p class="forget">Don't have an account ? <a href="#"> Register </a></p>
+            <p class="forget">Don't have an account ? <a href="#" @click="register"> Register </a></p>
           </form>
         </div>
       </div>
@@ -43,17 +44,51 @@
 </template>
 
 <script>
+import axios from 'axios'
+import GoogleSignInButton from 'vue-google-signin-button-directive'
+
 export default {
-  name: "Login"
+  data() {
+    return {
+      clientId: '63166694903-fqaqg5vk3h33m3u8imfnt6e5n3outg26.apps.googleusercontent.com',
+      username: '',
+      password: ''
+    }
+  },
+  name: "Login",
+  methods: {
+    OnGoogleAuthSuccess (idToken) {
+      console.log(idToken)
+    },
+    OnGoogleAuthFail (error) {
+      console.log(error)
+    },
+    login() {
+      axios({
+        method: "POST",
+        url: 'https://kanbanquh.herokuapp.com',
+        data: {
+          username: this.username,
+          password: this.password
+        }
+      })
+        .then(({ data }) => {
+          localStorage.setItem('access_token', data.access_token)
+          this.$emit('changePage', 'main-page')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    register() {
+      this.$emit('changePage', 'register-page')
+    }
+  }
 }
 </script>
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-
-body {
-  overflow: hidden;
-}
 
 #login {
   display: flex;

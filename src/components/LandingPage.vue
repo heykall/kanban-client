@@ -8,14 +8,15 @@
         <em>The Right Way to Organize Your Task</em>
       </h3>
       </div>
-      <button id="start-button" @click="start" style= "position: absolute; top: 50%;" class="btn btn-outline-white waves-effect btn-sm" >Get Started</button>
+      <button id="start-button" @click="$emit('login', 'login-page')" style= "position: absolute; top: 50%;" class="btn btn-outline-white waves-effect btn-sm" >Get Started</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "LandingPage"
+  name: "LandingPage",
+  
 }
 </script>
 

@@ -8,7 +8,7 @@
             KanBan (看板)
           </a>
           <div id="logout">
-            <button type="button" class="btn btn-outline-danger waves-effect btn-sm ">Logout</button>
+            <button type="button" class="btn btn-outline-danger waves-effect btn-sm " @click="logout">Logout</button>
           </div>
       </div>
     </nav>
@@ -17,7 +17,13 @@
 
 <script>
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  methods: {
+    logout() {
+      localStorage.removeItem('access_token')
+      this.$emit('changePage', 'login-page')
+    }
+  }
 }
 </script>
 

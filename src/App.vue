@@ -1,10 +1,10 @@
 <template>
   <div id="kanvan">
-    <landing-page v-if="currentPage === 'landing-page'"></landing-page>
-    <nav-bar v-if="currentPage === 'main-page'"></nav-bar>
+    <landing-page v-if="currentPage === 'landing-page'" @login='changePage'></landing-page>
+    <nav-bar v-if="currentPage === 'main-page'" @changePage='changePage'></nav-bar>
     <kanban v-if="currentPage === 'main-page'" :tasks="listTask" :category="taskCategory"></kanban>
-    <login v-if="currentPage === 'login-page'"> </login>
-    <register v-if="currentPage === 'register-page'"></register>
+    <login v-if="currentPage === 'login-page'" @changePage='changePage'> </login>
+    <register v-if="currentPage === 'register-page'" @changePage='changePage'></register>
   </div>
 </template>
 
@@ -16,13 +16,13 @@ import Kanban from "./components/Kanban"
 import Login from "./components/Login"
 import Register from "./components/Register"
 
-
 export default {
   name: "App",
   data() {
     return {
-      currentPage: "main-page",
-      baseUrl: 'https://kanbanquh.herokuapp.com/',
+      currentPage: "landing-page",
+      baseUrl: 'https://kanbanquh.herokuapp.com',
+      // baseUrl: 'http://localhost:3080',
       registerUser: {
         username: '',
         email: '',
@@ -32,7 +32,7 @@ export default {
         username: '',
         password: ''
       },
-      access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJoZXlrYWxsIiwiZW1haWwiOiJoZXlrYWxsQG1haWwuY29tIiwiaWF0IjoxNjEwNTU1MjM5fQ.CWC9T0hZ1Bfloo-GwKm1MsTCcyL9-lOj1O_n9fG-SGs',
+      access_token: localStorage.getItem('access_token'),
       taskCategory: ['Backlog', 'Todo', 'Doing', 'Done'],
       listTask: []
     }
@@ -45,6 +45,17 @@ export default {
     Register
   },
   methods: {
+    changePage(page) {
+      this.currentPage = page
+    },
+    checkAuth() {
+      if (localStorage.getItem('access_token')) {
+        this.changePage('main-page')
+        this.fetchTask()
+      } else {
+        this.changePage('landing-page')
+      }
+    },
     fetchTask() {
       axios({
         method: 'GET',
@@ -62,7 +73,7 @@ export default {
     }
   },
   created() {
-    this.fetchTask()
+    this.checkAuth()
   }
 }
 </script>

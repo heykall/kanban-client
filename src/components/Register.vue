@@ -21,18 +21,18 @@
         <img src="../assets/login/todo4.png" alt="" class="buku">
       </div>
        <!-- login box -->
-      <div class="register">
+      <div class="register" @submit.prevent="register">
         <div class="form">
           <h2>Register Form</h2>
           <form action="">
             <div class="inputBox">
-              <input type="text" placeholder="Username">
+              <input type="text" placeholder="Username" v-model="username">
             </div>
             <div class="inputBox">
-              <input type="text" placeholder="Email">
+              <input type="text" placeholder="Email" v-model="email">
             </div>
             <div class="inputBox">
-              <input type="password" placeholder="Password">
+              <input type="password" placeholder="Password" v-model="password">
             </div>
             <div class="inputBox">
               <input type="submit" value="Register">
@@ -45,17 +45,41 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: "Register"
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: ''
+    }
+  },
+  name: "Register",
+  methods: {
+    register() {
+      axios({
+        method: "POST",
+        url: 'https://kanbanquh.herokuapp.com',
+        data: {
+          username: this.username,
+          email: this.email,
+          password: this.password
+        }
+      })
+        .then(({ data }) => {
+          this.$emit('changePage', 'login-page')
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+    },
+  }
 }
 </script>
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-
-body {
-  overflow: hidden;
-}
 
 #register {
   display: flex;

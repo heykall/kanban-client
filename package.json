@@ -18,12 +18,15 @@
   },
   "homepage": "https://github.com/heykall/kanban-client#readme",
   "dependencies": {
+    "ax": "^0.2.2",
     "axios": "^0.21.1",
     "vue": "^2.6.12",
+    "vue-google-signin-button-directive": "^1.0.3",
     "vue-hot-reload-api": "^2.3.4"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.2.0",
+    "cssnano": "^4.1.10",
     "vue-template-compiler": "^2.6.12"
   }
 }
