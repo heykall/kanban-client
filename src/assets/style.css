@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(-45deg, #9166f5, #df87a9, #a5dbee, #dbe9e6);
+  background-blend-mode: normal, lighten, soft-light;
+  animation: color-change-5x 8s linear infinite alternate both;
+  overflow: hidden;
+}
+
+@keyframes color-change-5x {
+  0% {
+    background: #b2aeb4;
+  }
+  25% {
+    background: #91b8ab;
+  }
+  50% {
+    background: #7ec3f1;
+  }
+  75% {
+    background: #836c83;
+  }
+  100% {
+    background: #b39494;
+  }
+}
+
+.row {
+  padding: 18px;
+}
+
+#content {
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5.0px );
+  -webkit-backdrop-filter: blur( 5.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.card-body {
+  background: rgba( 255, 255, 255, 0.45 );
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+  border-radius: 5px 15px 0px 0px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  color: #123;
+  height: 100px;
+  width: auto;
+  overflow: hidden;
+}
+
+.card-header {
+  background: rgba( 255, 255, 255, 0.45 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+#first {
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,.4) 0%,    rgba(200,200,200,.5) 100%);
+  backdrop-filter: blur(10pxpx);
+}
+
+.big-card{
+  height: 500px;
+  max-width: 25vw;
+  min-height: auto;
+  margin: 5px;
+  margin-left: 10px;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+section{
+  position: fixed;
+  margin-top: 60px;
+}
+
+.card {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 15px;
+  border-left: 15px solid #99c5e2;
+  border-top-right-radius: 13px;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+}
+
+#start-button{
+  display: inline-block;
+  font-size: 1rem;
+  background: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+
+#start-button:hover {
+  letter-spacing: 6px;
+}
+
+#kanvan {
+  justify-content: center;
+  display: flex;
+  box-sizing: border-box;
+}
+
+
+
+
+
