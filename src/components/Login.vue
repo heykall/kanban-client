@@ -66,7 +66,7 @@ export default {
     login() {
       axios({
         method: "POST",
-        url: 'https://kanbanquh.herokuapp.com',
+        url: 'https://kanbanquh.herokuapp.com/login',
         data: {
           username: this.username,
           password: this.password

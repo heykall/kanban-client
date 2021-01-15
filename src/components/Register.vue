@@ -60,7 +60,7 @@ export default {
     register() {
       axios({
         method: "POST",
-        url: 'https://kanbanquh.herokuapp.com',
+        url: 'https://kanbanquh.herokuapp.com/register',
         data: {
           username: this.username,
           email: this.email,
