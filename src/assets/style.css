@@ -33,16 +33,16 @@ body {
 }
 
 .row {
-  padding: 18px;
+  padding-top: 1px;
 }
 
-#content {
+.content {
   background: rgba( 255, 255, 255, 0.05 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 5.0px );
   -webkit-backdrop-filter: blur( 5.0px );
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
+  height: 450px;
 }
 
 .card-body {
@@ -50,20 +50,19 @@ body {
   backdrop-filter: blur( 7.5px );
   -webkit-backdrop-filter: blur( 7.5px );
   border-radius: 5px 15px 0px 0px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
   color: #123;
-  height: 100px;
+  height: 88%;
   width: auto;
-  overflow: hidden;
+  overflow: auto;
+  padding: 5px 5px 0px 3px;
 }
 
 .card-header {
   background: rgba( 255, 255, 255, 0.45 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 7.5px );
   -webkit-backdrop-filter: blur( 7.5px );
-  border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
+  margin: 0;
 }
 
 #first {
@@ -73,12 +72,15 @@ body {
 }
 
 .big-card{
-  height: 500px;
+  border-width: 5px;
+  border: #b2aeb4;
+  position: flex;
   min-width: 22vw;
   max-width: 22vw;
-  min-height: auto;
+  height: 80vh;
   margin: 5px;
   margin-left: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 ); 
 }
 
 header{
@@ -105,7 +107,6 @@ section{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  
 }
 
 #start-button{
@@ -131,10 +132,78 @@ section{
 }
 
 .container {
+  overflow: hidden;
+}
+
+.bone {
+  min-height: 80%;
+  background: transparent;
+  color: #123;
+  width: auto;
   overflow: auto;
+  padding: 0px;
+  margin: 0px;
+}
+
+.card-footer {
+  width: 100%;
+  min-height: 3%;
+  padding: 0;
+  margin: 0px;
+  background: transparent;
+  background-color: #fff;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
 }
 
 
+div .added {
+  margin: 0;
+  padding: 0;
+}
 
+.card .card-body .text-sm-right {
+  font-size: 9px;
+  font-weight: 400;
+  color: #747373;
+}
+
+.card-title {
+  margin-bottom: 2px;
+}
+
+.card-body {
+  min-height: 100px
+}
+
+.card .card-body .desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: #747373;
+}
+
+.add-button {
+  padding: 0px;
+  margin-top: 6px;
+}
+
+.btn.btn-sm {
+  padding: .5rem 1rem;
+  font-size: .64rem;
+}
+
+.action {
+  padding-right: 3px;
+  padding-bottom: 3px;
+  display: none;
+}
+
+.card-body:hover + .action {
+  display: block;
+}
+
+.action:hover {
+  display: block;
+}
 
 

@@ -66,6 +66,7 @@ export default {
     login() {
       axios({
         method: "POST",
+        // url: 'http://localhost:3080/login',
         url: 'https://kanbanquh.herokuapp.com/login',
         data: {
           username: this.username,
@@ -75,6 +76,7 @@ export default {
         .then(({ data }) => {
           localStorage.setItem('access_token', data.access_token)
           this.$emit('changePage', 'main-page')
+          this.$emit('refetch')
         })
         .catch(err => {
           console.log(err)

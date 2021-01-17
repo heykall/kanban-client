@@ -1,7 +1,9 @@
 <template>
   <!-- Kanban -->
+
   <section id="kanban">
-    <div class="container col-sm-12" >
+    <button class="btn btn-light btn-sm add-button" >Add New Task</button>
+    <div class="container col-sm-12">
       <div class="row no-gutters">
         <kanban-category :tasks="tasks" 
           v-for="(categories, i) in category" 
@@ -21,7 +23,7 @@ export default {
   components: {
     KanbanCategory
   },
-  props: ['tasks', 'category']
+  props: ['tasks', 'category'],
 }
 </script>
 

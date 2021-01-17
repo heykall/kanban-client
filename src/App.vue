@@ -3,7 +3,13 @@
     <landing-page v-if="currentPage === 'landing-page'" @login='changePage'></landing-page>
     <nav-bar v-if="currentPage === 'main-page'" @changePage='changePage'></nav-bar>
     <kanban v-if="currentPage === 'main-page'" :tasks="listTask" :category="taskCategory"></kanban>
-    <login v-if="currentPage === 'login-page'" @changePage='changePage'> </login>
+    
+    <login 
+      v-if="currentPage === 'login-page'" 
+      @changePage='changePage'
+      @refetch='fetchTask'> 
+    </login>
+
     <register v-if="currentPage === 'register-page'" @changePage='changePage'></register>
   </div>
 </template>
@@ -42,7 +48,7 @@ export default {
     NavBar,
     Kanban,
     Login,
-    Register
+    Register,
   },
   methods: {
     changePage(page) {
@@ -53,6 +59,7 @@ export default {
         this.changePage('main-page')
         this.fetchTask()
       } else {
+        fetchTask()
         this.changePage('landing-page')
       }
     },
@@ -61,18 +68,30 @@ export default {
         method: 'GET',
         url: `${this.baseUrl}/tasks`,
         headers: {
-          access_token: this.access_token
+          access_token: localStorage.getItem('access_token'),
         }
       })
         .then(({ data }) => {
+          this.generateDate( data )
           this.listTask = data
         })
         .catch(err => {
           console.log(err);
         })
-    }
+    },
+    generateDate(data) {
+      const newData = data.map(task => {
+        const date1 = new Date(task.createdAt)
+        const date2 = new Date()
+        const diffTime = Math.abs(date2 - date1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        task.createdAt = diffDays
+        return task
+      })
+    },
   },
   created() {
+    this.fetchTask()
     this.checkAuth()
   }
 }
